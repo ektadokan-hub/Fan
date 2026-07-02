@@ -694,7 +694,7 @@
   var msg = document.getElementById('formMsg');
   var submitBtn = document.getElementById('submitBtn');
 
-  {
+  form.addEventListener('submit', function(e){
     e.preventDefault();
     submitBtn.disabled = true;
     var originalText = submitBtn.innerHTML;
