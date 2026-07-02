@@ -690,18 +690,52 @@
   var submitBtn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', function(e){
+    var form = document.getElementById('orderForm');
+  var msg = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
     e.preventDefault();
     submitBtn.disabled = true;
     var originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = 'Placing order…';
     msg.className = ''; msg.style.display = 'none';
 
-    var data = new FormData(form);
+    // 1. Gather form data
+    var formData = new FormData(form);
+    
+    // 2. Convert FormData into a plain object structured for SheetDB
+    // SheetDB expects data wrapped inside a {"data": [...]} object wrapper
+    var orderData = {};
+    formData.forEach(function(value, key){
+      orderData[key] = value;
+    });
 
-    fetch('https://formspree.io/f/mzdlgjla', {
+    // 3. Send the data to SheetDB
+    fetch('YOUR_SHEETDB_API_URL_HERE', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ data: [orderData] })
+    }).then(function(res){
+      if (res.ok) {
+        msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
+        msg.className = 'ok';
+        form.reset();
+        recalc();
+      } else {
+        throw new Error('Submission failed');
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please call us or try again.';
+      msg.className = 'err';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    });
+  });
     }).then(function(res){
       if (res.ok) {
         msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
