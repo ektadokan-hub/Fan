@@ -693,11 +693,6 @@
   var submitBtn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', function(e){
-    var form = document.getElementById('orderForm');
-  var msg = document.getElementById('formMsg');
-  var submitBtn = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', function(e){
     e.preventDefault();
     submitBtn.disabled = true;
     var originalText = submitBtn.innerHTML;
@@ -715,7 +710,7 @@
     });
 
     // 3. Send the data to SheetDB
-    fetch('https://sheetdb.io/api/v1/gxbxeibz7svp7', {
+    fetch('YOUR_SHEETDB_API_URL_HERE', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -739,23 +734,6 @@
       submitBtn.innerHTML = originalText;
     });
   });
-    }).then(function(res){
-      if (res.ok) {
-        msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
-        msg.className = 'ok';
-        form.reset();
-        recalc();
-      } else {
-        throw new Error('Submission failed');
-      }
-    }).catch(function(){
-      msg.textContent = 'Something went wrong. Please call us or try again.';
-      msg.className = 'err';
-    }).finally(function(){
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-    });
-})();
 </script>
 
 </body>
