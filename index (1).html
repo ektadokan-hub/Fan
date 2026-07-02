@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K801 — Bladeless Handheld Fan | ৳1,199</title>
+<meta name="description" content="K801 bladeless handheld fan. 4-stage angle control, long-lasting battery, compact foldable design. ৳1,199 Cash on Delivery. Free delivery on 2+.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080b;
+    --surface:#131318;
+    --surface-alt:#1b1b22;
+    --border:rgba(255,255,255,.08);
+    --violet:#a78bfa;
+    --violet-2:#8b6ff0;
+    --violet-glow:rgba(167,139,250,.35);
+    --amber:#ffc857;
+    --amber-deep:#f5a623;
+    --text:#f7f7f9;
+    --text-dim:#9a9aa7;
+    --text-faint:#65656f;
+    --radius:16px;
+    --font-display:'Unbounded',ui-sans-serif,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Manrope',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  section{position:relative;}
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* ---------- Sticky bar ---------- */
+  .stickybar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,8,11,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .stickybar .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .brand{font-family:var(--font-display);font-weight:800;font-size:17px;letter-spacing:.02em;}
+  .brand span{color:var(--violet);}
+  .stickybar-right{display:flex;align-items:center;gap:14px;}
+  .stickybar-price{font-family:var(--font-display);font-weight:700;font-size:15px;}
+  .stickybar-price small{color:var(--text-faint);text-decoration:line-through;font-weight:500;margin-left:6px;font-family:'Manrope',sans-serif;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-display);font-weight:700;font-size:14px;
+    padding:14px 28px;border-radius:100px;border:none;
+    cursor:pointer;text-decoration:none;
+    background:linear-gradient(135deg,var(--violet),var(--violet-2));
+    color:#0a0a0d;
+    box-shadow:0 8px 24px -6px var(--violet-glow);
+    transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s cubic-bezier(.16,1,.3,1), filter .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 14px 34px -6px var(--violet-glow);filter:brightness(1.05);}
+  .btn:active{transform:translateY(0) scale(.98);}
+  .btn-sm{padding:10px 20px;font-size:13px;}
+  .btn-ghost{
+    background:transparent;color:var(--text);border:1px solid var(--border);
+    box-shadow:none;
+  }
+  .btn-ghost:hover{border-color:var(--violet);box-shadow:none;}
+  .btn-full{width:100%;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:64px 0 40px;
+    background:
+      radial-gradient(ellipse 900px 500px at 75% -10%, var(--violet-glow), transparent 60%);
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--amber);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    background:rgba(255,200,87,.1);
+    border:1px solid rgba(255,200,87,.25);
+    padding:6px 14px;border-radius:100px;
+    margin-bottom:20px;
+  }
+  .eyebrow svg{width:14px;height:14px;}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(34px,5vw,52px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin-bottom:18px;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--violet),#d9c9ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    color:var(--text-dim);
+    font-size:17px;
+    max-width:440px;
+    margin-bottom:28px;
+  }
+  .price-row{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap;
+  }
+  .price-now{font-family:var(--font-display);font-size:34px;font-weight:800;}
+  .price-old{font-size:18px;color:var(--text-faint);text-decoration:line-through;}
+  .price-save{
+    background:var(--amber);color:#1a1200;font-weight:800;font-size:11px;
+    padding:5px 11px;border-radius:100px;letter-spacing:.04em;font-family:var(--font-display);
+  }
+  .hero-free{
+    display:flex;align-items:center;gap:8px;
+    color:var(--amber);font-weight:700;font-size:14px;margin-bottom:26px;
+  }
+  .hero-free svg{width:18px;height:18px;flex-shrink:0;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .glow-ring{
+    position:absolute;
+    width:400px;height:400px;
+    border-radius:50%;
+    background:radial-gradient(circle, var(--violet-glow) 0%, transparent 70%);
+    filter:blur(20px);
+    animation:pulse 3.5s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{transform:scale(1);opacity:.6;}
+    50%{transform:scale(1.1);opacity:.9;}
+  }
+  .hero-visual .hero-frame{
+    position:relative;z-index:1;
+    width:100%;max-width:460px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -10px rgba(0,0,0,.6), 0 0 0 1px var(--border);
+    animation:float 6s ease-in-out infinite;
+  }
+  .hero-visual .hero-frame img{width:100%;height:100%;object-fit:cover;}
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+  @media(prefers-reduced-motion:reduce){.glow-ring, .hero-frame{animation:none;}}
+
+  /* ---------- Free delivery banner ---------- */
+  .delivery-banner{
+    background:linear-gradient(100deg,var(--amber-deep),var(--amber));
+    color:#1a1200;
+    padding:18px 0;
+  }
+  .delivery-banner .wrap{
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+    text-align:center;
+  }
+  .delivery-banner strong{font-weight:800;font-size:16px;}
+  .delivery-banner span{font-weight:600;font-size:14px;opacity:.85;}
+  .delivery-banner svg{width:20px;height:20px;flex-shrink:0;}
+  .delivery-banner .btn{
+    background:#0a0a0d;color:var(--amber);box-shadow:none;
+  }
+  .delivery-banner .btn:hover{background:#000;}
+
+  /* ---------- Features ---------- */
+  .features{padding:80px 0;}
+  .section-head{text-align:center;max-width:520px;margin:0 auto 48px;}
+  .section-eyebrow{color:var(--violet);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+  h2{font-family:var(--font-display);font-size:clamp(24px,3.2vw,32px);font-weight:700;letter-spacing:-.01em;}
+  .section-sub{color:var(--text-dim);margin-top:10px;font-size:15px;}
+
+  .feature-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .feature-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:26px 20px;
+    transition:transform .3s cubic-bezier(.16,1,.3,1), border-color .3s ease;
+  }
+  .feature-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.3);}
+  .feature-icon{
+    width:42px;height:42px;
+    border-radius:11px;
+    background:rgba(167,139,250,.12);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+  }
+  .feature-icon svg{width:22px;height:22px;color:var(--violet);}
+  .feature-card h3{font-size:15px;font-weight:700;margin-bottom:6px;}
+  .feature-card p{font-size:13px;color:var(--text-dim);}
+
+  /* ---------- Showcase ---------- */
+  .showcase{padding:20px 0 90px;}
+  .showcase-inner{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:24px;
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;
+    overflow:hidden;
+  }
+  .showcase-img{
+    background:radial-gradient(ellipse at center, #1f1f28, #0e0e12);
+    padding:40px;display:flex;align-items:center;justify-content:center;
+  }
+  .showcase-img img{max-width:340px;}
+  .showcase-copy{padding:48px;}
+  .showcase-copy h2{margin-bottom:16px;}
+  .spec-list{list-style:none;margin-top:22px;}
+  .spec-list li{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid var(--border);
+    font-size:14px;color:var(--text-dim);
+  }
+  .spec-list li:last-child{border-bottom:none;}
+  .spec-list svg{width:16px;height:16px;color:var(--violet);flex-shrink:0;}
+  .spec-list b{color:var(--text);font-weight:700;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{padding:20px 0 90px;}
+  .gallery-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:16px;
+  }
+  .gallery-item{
+    border-radius:20px;overflow:hidden;
+    border:1px solid var(--border);
+    background:var(--surface);
+    position:relative;
+  }
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .gallery-item:hover img{transform:scale(1.04);}
+  .gallery-tall{grid-row:span 2;}
+  .gallery-side{display:flex;flex-direction:column;gap:16px;}
+
+  /* ---------- Checkout ---------- */
+  .order{padding:20px 0 100px;}
+  .order-inner{
+    display:grid;grid-template-columns:1fr 1.15fr;gap:28px;
+    align-items:start;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .summary-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 0;
+    font-size:14px;
+  }
+  .summary-row.total{
+    border-top:1px solid var(--border);
+    margin-top:6px;padding-top:16px;
+    font-family:var(--font-display);
+    font-size:19px;font-weight:700;
+  }
+  .summary-row .dim{color:var(--text-dim);}
+  .free-tag{color:var(--amber);font-weight:800;}
+
+  .qty-control{
+    display:flex;align-items:center;gap:0;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    width:fit-content;
+  }
+  .qty-control button{
+    width:38px;height:38px;
+    background:var(--surface-alt);
+    border:none;color:var(--text);
+    font-size:18px;font-weight:700;
+    cursor:pointer;
+  }
+  .qty-control button:hover{background:#25252e;}
+  .qty-control input{
+    width:56px;height:38px;text-align:center;
+    background:transparent;border:none;color:var(--text);
+    font-family:inherit;font-weight:800;font-size:15px;
+    -moz-appearance:textfield;
+  }
+  .qty-control input::-webkit-outer-spin-button,
+  .qty-control input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+
+  .free-badge{
+    margin-top:16px;
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,200,87,.1);
+    border:1px solid rgba(255,200,87,.3);
+    color:var(--amber);
+    font-weight:700;font-size:13px;
+    padding:10px 14px;border-radius:10px;
+  }
+  .free-badge svg{width:16px;height:16px;flex-shrink:0;}
+
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;font-family:var(--font-display);font-size:11px;font-weight:600;
+    color:var(--text-dim);margin-bottom:8px;text-transform:uppercase;letter-spacing:.07em;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:var(--surface-alt);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;
+    padding:13px 14px;border-radius:10px;
+    outline:none;
+    transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--violet);background:#202029;
+    box-shadow:0 0 0 3px rgba(167,139,250,.15);
+  }
+  .field textarea{resize:vertical;min-height:70px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .pay-note{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;color:var(--text-dim);
+    background:var(--surface-alt);
+    border:1px solid var(--border);
+    padding:12px 14px;border-radius:10px;
+    margin-bottom:18px;
+  }
+  .pay-note svg{width:16px;height:16px;color:var(--violet);flex-shrink:0;}
+
+  #formMsg{
+    margin-top:14px;font-size:14px;font-weight:700;text-align:center;display:none;
+  }
+  #formMsg.ok{color:#6ee7a0;display:block;}
+  #formMsg.err{color:#ff8383;display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--border);
+    padding:44px 0 36px;
+    text-align:center;
+  }
+  footer .brand{margin-bottom:8px;justify-content:center;display:flex;}
+  footer p{color:var(--text-faint);font-size:13px;margin-bottom:22px;}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:36px;}
+    .hero{padding:36px 0 28px;text-align:center;}
+    .hero-sub{margin-left:auto;margin-right:auto;}
+    .price-row,.hero-free,.hero-cta{justify-content:center;}
+    .hero-visual{order:-1;}
+    .hero-visual .hero-frame{max-width:320px;}
+    .glow-ring{width:280px;height:280px;}
+    .feature-grid{grid-template-columns:1fr 1fr;}
+    .showcase-inner{grid-template-columns:1fr;}
+    .showcase-copy{padding:32px 24px;}
+    .showcase-img{padding:28px;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-tall{grid-row:auto;aspect-ratio:1/1;}
+    .order-inner{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .stickybar-price small{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="stickybar">
+  <div class="wrap">
+    <div class="brand">K801<span>.</span></div>
+    <div class="stickybar-right">
+      <div class="stickybar-price">৳1,199 <small>৳1,499</small></div>
+      <a href="#order" class="btn btn-sm">Buy Now</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+        Feel the chill
+      </div>
+      <h1>Cool air,<br><em>zero blades.</em></h1>
+      <p class="hero-sub">The K801 folds flat, fits your palm, and pushes strong, silent airflow through a bladeless ring — with 4-stage angle control built in.</p>
+      <div class="price-row">
+        <span class="price-now">৳1,199</span>
+        <span class="price-old">৳1,499</span>
+        <span class="price-save">SAVE 20%</span>
+      </div>
+      <div class="hero-free">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Buy 2 or more — delivery is on us
+      </div>
+      <div class="hero-cta">
+        <a href="#order" class="btn">Buy Now →</a>
+        <a href="#features" class="btn btn-ghost">See features</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="glow-ring"></div>
+      <div class="hero-frame">
+        <img src="hero.webp" alt="K801 bladeless handheld fan in black and silver, glowing cold blue" width="799" height="799" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="delivery-banner">
+  <div class="wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    <strong>Buy 2, get FREE delivery.</strong>
+    <span>Otherwise ৳80 inside Dhaka, ৳120 outside — auto-calculated at checkout.</span>
+    <a href="#order" class="btn btn-sm">Buy Now</a>
+  </div>
+</div>
+
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Why K801</div>
+      <h2>Small fan. Serious cooling.</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 0 6M12 2v6"/><path d="M20.5 8a3 3 0 0 1-4.6 4.2M20.5 8l-5.2 3"/><path d="M20.5 16a3 3 0 0 1-4.6-4.2M20.5 16l-5.2-3"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>4-Stage Angle Control</h3>
+        <p>Tilt the head to the exact angle you need, and it holds.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 8l-2 4h4l-2 4"/></svg></div>
+        <h3>USB-C Fast Charging</h3>
+        <p>Top up quickly and go — no proprietary cable needed.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 10h4M6 14h2"/></svg></div>
+        <h3>Smart LED Display</h3>
+        <p>Battery and wind speed, always visible at a glance.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h4l3-3v10l-3-3H4z"/><path d="M15 8a5 5 0 0 1 0 8M18.5 5a9 9 0 0 1 0 14"/></svg></div>
+        <h3>Long Battery Life</h3>
+        <p>Hours of continuous airflow on a single charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <div class="showcase-inner reveal">
+      <div class="showcase-img">
+        <img src="product.webp" alt="K801 fan side view" width="340" height="340" loading="lazy">
+      </div>
+      <div class="showcase-copy">
+        <div class="section-eyebrow">Built to travel</div>
+        <h2>Folds flat. Fits everywhere.</h2>
+        <p class="hero-sub" style="margin-bottom:0;">A compact hinge lets the head fold flat against the body, so it slides into a bag or a desk drawer without a second thought.</p>
+        <ul class="spec-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Bladeless ring</b> — safe for curious hands</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Multiple wind modes</b> — from breeze to blast</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>One-hand grip</b> — desk, stroller, or pocket</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Cash on Delivery</b> — pay when it arrives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">In detail</div>
+      <h2>A closer look</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-tall reveal">
+        <img src="gallery-1.webp" alt="K801 fan close-up, cold air glow ring" loading="lazy" width="700" height="700">
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-item reveal">
+          <img src="gallery-2.webp" alt="K801 fan feature overview — angle control, USB-C charging, LED display" loading="lazy" width="1100" height="466">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="product.webp" alt="K801 fan standing upright, side profile" loading="lazy" width="900" height="900">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:36px;">
+      <div class="section-eyebrow">Order</div>
+      <h2>Place your order</h2>
+      <p class="section-sub">Cash on Delivery. Pay when your K801 arrives at your door.</p>
+    </div>
+
+    <div class="order-inner reveal">
+      <div class="card" id="summaryCard">
+        <h3 style="font-family:var(--font-display);font-size:15px;font-weight:700;margin-bottom:18px;text-transform:uppercase;letter-spacing:.04em;">Order Summary</h3>
+
+        <label style="font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--text-dim);display:block;margin-bottom:10px;text-transform:uppercase;letter-spacing:.07em;">Quantity — up to 50</label>
+        <div class="qty-control">
+          <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+          <input type="number" id="qtyInput" value="1" min="1" max="50" inputmode="numeric">
+          <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <div style="margin-top:22px;">
+          <div class="summary-row"><span class="dim">Unit price</span><span>৳1,199</span></div>
+          <div class="summary-row"><span class="dim" id="subLabel">Subtotal (1 item)</span><span id="subVal">৳1,199</span></div>
+          <div class="summary-row" style="padding-bottom:0;"><span class="dim">Delivery</span><span id="delVal">৳120</span></div>
+          <div style="text-align:right;font-size:11px;color:var(--text-faint);margin-bottom:4px;" id="delNote">Select district for exact rate</div>
+          <div class="summary-row total"><span>Total</span><span id="totalVal">৳1,319</span></div>
+        </div>
+
+        <div class="free-badge" id="freeBadge" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Free delivery unlocked — you're buying 2 or more
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pay-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Cash on Delivery only — no advance payment required
+        </div>
+
+        <form id="orderForm">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX" pattern="[0-9]{11}" maxlength="11">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="district">District</label>
+              <select id="district" name="district" required>
+                <option value="" disabled selected>Select district</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="qtyDisplay">Quantity</label>
+              <input type="text" id="qtyDisplay" readonly value="1">
+            </div>
+          </div>
+          <div class="field">
+            <label for="address">Full delivery address</label>
+            <textarea id="address" name="address" required placeholder="House, road, area..."></textarea>
+          </div>
+          <input type="hidden" name="quantity" id="qtyHidden" value="1">
+          <input type="hidden" name="unit_price" value="1199">
+          <input type="hidden" name="total" id="totalHidden" value="1319">
+          <input type="hidden" name="product" value="K801 Bladeless Handheld Fan">
+
+          <button type="submit" class="btn btn-full" id="submitBtn">Place Order — COD <span id="btnTotal">৳1,319</span></button>
+          <div id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">K801<span>.</span></div>
+    <p>Feel the chill. Cash on Delivery across Bangladesh.</p>
+    <a href="#order" class="btn">Buy Now →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PRICE = 1199;
+  var DELIVERY_DHAKA = 80;
+  var DELIVERY_OUTSIDE = 120;
+  var districts = ["Dhaka","Faridpur","Gazipur","Gopalganj","Kishoreganj","Madaripur","Manikganj","Munshiganj","Mymensingh","Narayanganj","Narsingdi","Netrokona","Rajbari","Shariatpur","Sherpur","Tangail","Bogura","Chapainawabganj","Joypurhat","Naogaon","Natore","Pabna","Rajshahi","Sirajganj","Barguna","Barishal","Bhola","Jhalokati","Patuakhali","Pirojpur","Bandarban","Brahmanbaria","Chandpur","Chattogram","Cumilla","Cox's Bazar","Feni","Khagrachhari","Lakshmipur","Noakhali","Rangamati","Habiganj","Moulvibazar","Sunamganj","Sylhet","Bagerhat","Chuadanga","Jashore","Jhenaidah","Khulna","Kushtia","Magura","Meherpur","Narail","Satkhira","Dinajpur","Gaibandha","Kurigram","Lalmonirhat","Nilphamari","Panchagarh","Rangpur","Thakurgaon"];
+  var sel = document.getElementById('district');
+  districts.forEach(function(d){
+    var o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    sel.appendChild(o);
+  });
+
+  var qtyInput = document.getElementById('qtyInput');
+  var qtyDisplay = document.getElementById('qtyDisplay');
+  var qtyHidden = document.getElementById('qtyHidden');
+  var totalHidden = document.getElementById('totalHidden');
+  var subLabel = document.getElementById('subLabel');
+  var subVal = document.getElementById('subVal');
+  var delVal = document.getElementById('delVal');
+  var delNote = document.getElementById('delNote');
+  var totalVal = document.getElementById('totalVal');
+  var freeBadge = document.getElementById('freeBadge');
+  var btnTotal = document.getElementById('btnTotal');
+
+  function fmt(n){ return '৳' + n.toLocaleString('en-US'); }
+
+  function recalc(){
+    var qty = parseInt(qtyInput.value, 10);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    if (qty > 50) qty = 50;
+    qtyInput.value = qty;
+
+    var subtotal = PRICE * qty;
+    var isDhaka = sel.value === 'Dhaka';
+    var baseDelivery = isDhaka ? DELIVERY_DHAKA : DELIVERY_OUTSIDE;
+    var delivery = qty >= 2 ? 0 : baseDelivery;
+    var total = subtotal + delivery;
+
+    subLabel.textContent = 'Subtotal (' + qty + (qty === 1 ? ' item)' : ' items)');
+    subVal.textContent = fmt(subtotal);
+    delVal.textContent = delivery === 0 ? 'FREE' : fmt(delivery);
+    delVal.style.color = delivery === 0 ? '#6ee7a0' : '';
+    if (delNote) {
+      delNote.textContent = qty >= 2 ? '' : (sel.value ? (isDhaka ? 'Inside Dhaka' : 'Outside Dhaka') : 'Select district for exact rate');
+    }
+    totalVal.textContent = fmt(total);
+    btnTotal.textContent = fmt(total);
+    freeBadge.style.display = qty >= 2 ? 'flex' : 'none';
+
+    qtyDisplay.value = qty;
+    qtyHidden.value = qty;
+    totalHidden.value = total;
+  }
+
+  document.getElementById('qtyMinus').addEventListener('click', function(){
+    qtyInput.value = Math.max(1, parseInt(qtyInput.value,10) - 1);
+    recalc();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', function(){
+    qtyInput.value = Math.min(50, parseInt(qtyInput.value,10) + 1);
+    recalc();
+  });
+  qtyInput.addEventListener('input', recalc);
+  sel.addEventListener('change', recalc);
+  recalc();
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var form = document.getElementById('orderForm');
+  var msg = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    var originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Placing order…';
+    msg.className = ''; msg.style.display = 'none';
+
+    var data = new FormData(form);
+
+    fetch('https://formspree.io/f/mzdlgjla', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok) {
+        msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
+        msg.className = 'ok';
+        form.reset();
+        recalc();
+      } else {
+        throw new Error('Submission failed');
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please call us or try again.';
+      msg.className = 'err';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
