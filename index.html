@@ -918,7 +918,7 @@
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
   }
 
-  var form = document.getElementById('orderForm');
+var form = document.getElementById('orderForm');
   var msg = document.getElementById('formMsg');
   var submitBtn = document.getElementById('submitBtn');
 
@@ -962,6 +962,8 @@
     }).finally(function(){
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
+    });
+  });
     });
   });
 })();
