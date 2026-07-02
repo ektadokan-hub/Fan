@@ -940,7 +940,7 @@ var form = document.getElementById('orderForm');
     });
 
     // 3. Send the data to SheetDB
-    fetch('https://sheetdb.io/api/v1/gxbxeibz7svp7', {
+    fetch('YOUR_SHEETDB_API_URL_HERE', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -962,8 +962,6 @@ var form = document.getElementById('orderForm');
     }).finally(function(){
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
-    });
-  });
     });
   });
 })();
