@@ -699,24 +699,12 @@
     submitBtn.innerHTML = 'Placing order…';
     msg.className = ''; msg.style.display = 'none';
 
-    // 1. Gather form data
-    var formData = new FormData(form);
-    
-    // 2. Convert FormData into a plain object structured for SheetDB
-    // SheetDB expects data wrapped inside a {"data": [...]} object wrapper
-    var orderData = {};
-    formData.forEach(function(value, key){
-      orderData[key] = value;
-    });
+    var data = new FormData(form);
 
-    // 3. Send the data to SheetDB
-    fetch('https://sheetdb.io/api/v1/gxbxeibz7svp7', {
+    fetch('https://formspree.io/f/mzdlgjla', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({ data: [orderData] })
+      body: data,
+      headers: { 'Accept': 'application/json' }
     }).then(function(res){
       if (res.ok) {
         msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
@@ -734,7 +722,237 @@
       submitBtn.innerHTML = originalText;
     });
   });
-    
+})();(function(){
+  var PRICE = 1199;
+  var DELIVERY_DHAKA = 80;
+  var DELIVERY_OUTSIDE = 120;
+  var districts = ["Dhaka","Faridpur","Gazipur","Gopalganj","Kishoreganj","Madaripur","Manikganj","Munshiganj","Mymensingh","Narayanganj","Narsingdi","Netrokona","Rajbari","Shariatpur","Sherpur","Tangail","Bogura","Chapainawabganj","Joypurhat","Naogaon","Natore","Pabna","Rajshahi","Sirajganj","Barguna","Barishal","Bhola","Jhalokati","Patuakhali","Pirojpur","Bandarban","Brahmanbaria","Chandpur","Chattogram","Cumilla","Cox's Bazar","Feni","Khagrachhari","Lakshmipur","Noakhali","Rangamati","Habiganj","Moulvibazar","Sunamganj","Sylhet","Bagerhat","Chuadanga","Jashore","Jhenaidah","Khulna","Kushtia","Magura","Meherpur","Narail","Satkhira","Dinajpur","Gaibandha","Kurigram","Lalmonirhat","Nilphamari","Panchagarh","Rangpur","Thakurgaon"];
+  var sel = document.getElementById('district');
+  districts.forEach(function(d){
+    var o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    sel.appendChild(o);
+  });
+
+  var qtyInput = document.getElementById('qtyInput');
+  var qtyDisplay = document.getElementById('qtyDisplay');
+  var qtyHidden = document.getElementById('qtyHidden');
+  var totalHidden = document.getElementById('totalHidden');
+  var subLabel = document.getElementById('subLabel');
+  var subVal = document.getElementById('subVal');
+  var delVal = document.getElementById('delVal');
+  var delNote = document.getElementById('delNote');
+  var totalVal = document.getElementById('totalVal');
+  var freeBadge = document.getElementById('freeBadge');
+  var btnTotal = document.getElementById('btnTotal');
+
+  function fmt(n){ return '৳' + n.toLocaleString('en-US'); }
+
+  function recalc(){
+    var qty = parseInt(qtyInput.value, 10);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    if (qty > 50) qty = 50;
+    qtyInput.value = qty;
+
+    var subtotal = PRICE * qty;
+    var isDhaka = sel.value === 'Dhaka';
+    var baseDelivery = isDhaka ? DELIVERY_DHAKA : DELIVERY_OUTSIDE;
+    var delivery = qty >= 2 ? 0 : baseDelivery;
+    var total = subtotal + delivery;
+
+    subLabel.textContent = 'Subtotal (' + qty + (qty === 1 ? ' item)' : ' items)');
+    subVal.textContent = fmt(subtotal);
+    delVal.textContent = delivery === 0 ? 'FREE' : fmt(delivery);
+    delVal.style.color = delivery === 0 ? '#6ee7a0' : '';
+    if (delNote) {
+      delNote.textContent = qty >= 2 ? '' : (sel.value ? (isDhaka ? 'Inside Dhaka' : 'Outside Dhaka') : 'Select district for exact rate');
+    }
+    totalVal.textContent = fmt(total);
+    btnTotal.textContent = fmt(total);
+    freeBadge.style.display = qty >= 2 ? 'flex' : 'none';
+
+    qtyDisplay.value = qty;
+    qtyHidden.value = qty;
+    totalHidden.value = total;
+  }
+
+  document.getElementById('qtyMinus').addEventListener('click', function(){
+    qtyInput.value = Math.max(1, parseInt(qtyInput.value,10) - 1);
+    recalc();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', function(){
+    qtyInput.value = Math.min(50, parseInt(qtyInput.value,10) + 1);
+    recalc();
+  });
+  qtyInput.addEventListener('input', recalc);
+  sel.addEventListener('change', recalc);
+  recalc();
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var form = document.getElementById('orderForm');
+  var msg = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    var originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Placing order…';
+    msg.className = ''; msg.style.display = 'none';
+
+    var data = new FormData(form);
+
+    fetch('https://formspree.io/f/mzdlgjla', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok) {
+        msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
+        msg.className = 'ok';
+        form.reset();
+        recalc();
+      } else {
+        throw new Error('Submission failed');
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please call us or try again.';
+      msg.className = 'err';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    });
+  });
+})();(function(){
+  var PRICE = 1199;
+  var DELIVERY_DHAKA = 80;
+  var DELIVERY_OUTSIDE = 120;
+  var districts = ["Dhaka","Faridpur","Gazipur","Gopalganj","Kishoreganj","Madaripur","Manikganj","Munshiganj","Mymensingh","Narayanganj","Narsingdi","Netrokona","Rajbari","Shariatpur","Sherpur","Tangail","Bogura","Chapainawabganj","Joypurhat","Naogaon","Natore","Pabna","Rajshahi","Sirajganj","Barguna","Barishal","Bhola","Jhalokati","Patuakhali","Pirojpur","Bandarban","Brahmanbaria","Chandpur","Chattogram","Cumilla","Cox's Bazar","Feni","Khagrachhari","Lakshmipur","Noakhali","Rangamati","Habiganj","Moulvibazar","Sunamganj","Sylhet","Bagerhat","Chuadanga","Jashore","Jhenaidah","Khulna","Kushtia","Magura","Meherpur","Narail","Satkhira","Dinajpur","Gaibandha","Kurigram","Lalmonirhat","Nilphamari","Panchagarh","Rangpur","Thakurgaon"];
+  var sel = document.getElementById('district');
+  districts.forEach(function(d){
+    var o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    sel.appendChild(o);
+  });
+
+  var qtyInput = document.getElementById('qtyInput');
+  var qtyDisplay = document.getElementById('qtyDisplay');
+  var qtyHidden = document.getElementById('qtyHidden');
+  var totalHidden = document.getElementById('totalHidden');
+  var subLabel = document.getElementById('subLabel');
+  var subVal = document.getElementById('subVal');
+  var delVal = document.getElementById('delVal');
+  var delNote = document.getElementById('delNote');
+  var totalVal = document.getElementById('totalVal');
+  var freeBadge = document.getElementById('freeBadge');
+  var btnTotal = document.getElementById('btnTotal');
+
+  function fmt(n){ return '৳' + n.toLocaleString('en-US'); }
+
+  function recalc(){
+    var qty = parseInt(qtyInput.value, 10);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    if (qty > 50) qty = 50;
+    qtyInput.value = qty;
+
+    var subtotal = PRICE * qty;
+    var isDhaka = sel.value === 'Dhaka';
+    var baseDelivery = isDhaka ? DELIVERY_DHAKA : DELIVERY_OUTSIDE;
+    var delivery = qty >= 2 ? 0 : baseDelivery;
+    var total = subtotal + delivery;
+
+    subLabel.textContent = 'Subtotal (' + qty + (qty === 1 ? ' item)' : ' items)');
+    subVal.textContent = fmt(subtotal);
+    delVal.textContent = delivery === 0 ? 'FREE' : fmt(delivery);
+    delVal.style.color = delivery === 0 ? '#6ee7a0' : '';
+    if (delNote) {
+      delNote.textContent = qty >= 2 ? '' : (sel.value ? (isDhaka ? 'Inside Dhaka' : 'Outside Dhaka') : 'Select district for exact rate');
+    }
+    totalVal.textContent = fmt(total);
+    btnTotal.textContent = fmt(total);
+    freeBadge.style.display = qty >= 2 ? 'flex' : 'none';
+
+    qtyDisplay.value = qty;
+    qtyHidden.value = qty;
+    totalHidden.value = total;
+  }
+
+  document.getElementById('qtyMinus').addEventListener('click', function(){
+    qtyInput.value = Math.max(1, parseInt(qtyInput.value,10) - 1);
+    recalc();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', function(){
+    qtyInput.value = Math.min(50, parseInt(qtyInput.value,10) + 1);
+    recalc();
+  });
+  qtyInput.addEventListener('input', recalc);
+  sel.addEventListener('change', recalc);
+  recalc();
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var form = document.getElementById('orderForm');
+  var msg = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    var originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Placing order…';
+    msg.className = ''; msg.style.display = 'none';
+
+    var data = new FormData(form);
+
+    fetch('https://formspree.io/f/mzdlgjla', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok) {
+        msg.textContent = 'Order placed! We\'ll call you shortly to confirm.';
+        msg.className = 'ok';
+        form.reset();
+        recalc();
+      } else {
+        throw new Error('Submission failed');
+      }
+    }).catch(function(){
+      msg.textContent = 'Something went wrong. Please call us or try again.';
+      msg.className = 'err';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    });
+  });
+})();
 </script>
 
 </body>
